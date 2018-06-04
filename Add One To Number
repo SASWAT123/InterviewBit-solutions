@@ -1,0 +1,24 @@
+class Solution:
+	# @param A : list of integers
+	# @return a list of integers
+	def plusOne(self, A):
+	    l = len(A)
+	    s = -1;
+	    A[l-1] = A[l-1]+1
+	    carry = A[l-1]//10
+	    A[l-1] = A[l-1]%10
+	    for i in range(l-2,-1,-1):
+	        if(carry == 1):
+	            A[i] = A[i]+1
+	            carry = A[i]//10
+	            A[i] = A[i]%10
+	    if(carry == 1):
+	        A.insert(0,1)
+	    for i in range(l):
+	        if(A[i] == 0):
+	            s = i;
+	        else:
+	            break
+	    A = A[s+1:]
+	    return A
+	   
