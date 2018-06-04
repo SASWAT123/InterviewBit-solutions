@@ -1,0 +1,33 @@
+class Solution:
+	# @param A : list of integers
+	# @return a list of integers
+	def maxset(self, A):
+	    curr_sum = 0;
+	    max_sum = -1;
+	    curr = [];
+	    final = [];
+	    length = len(A);
+	    for i in range(length):
+	        if(A[i] >= 0):
+	            curr.append(A[i]);
+	            curr_sum = curr_sum+A[i];
+	        else:
+	            if(curr_sum > max_sum):
+	                max_sum = curr_sum;
+	                curr_sum = 0;
+	                final = curr;
+	                curr = [];
+	            else:
+	                curr = [];
+	                curr_sum = 0;
+	    if(curr_sum > max_sum):
+	        max_sum = curr_sum;
+	        curr_sum = 0;
+	        final = curr;
+	        curr = [];
+	    return final
+                    
+        
+        	    
+	    
+	    
