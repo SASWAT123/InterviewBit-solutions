@@ -1,0 +1,16 @@
+from sys import maxsize
+class Solution:
+	# @param A : tuple of integers
+	# @return an integer
+	def maxSubArray(self, A):
+	    curr_sum = 0;
+	    max_sum = -maxsize-1;
+	    
+	    for i in range(len(A)):
+	        curr_sum = curr_sum + A[i];
+	        if(curr_sum > max_sum):
+	            max_sum = curr_sum;
+	        if(curr_sum < 0):
+	            curr_sum = 0;
+	    return(max_sum)
+	        
