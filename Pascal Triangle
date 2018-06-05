@@ -1,0 +1,20 @@
+class Solution:
+	# @param A : integer
+	# @return a list of list of integers
+	def generate(self, A):
+	    lst = [[0]*A for i in range(A)]
+	    final = []
+	    for i in range(A):
+	        for j in range(A):
+	            if(j == 0):
+	                lst[i][j] = 1
+	            elif(i == j):
+	                lst[i][j] = 1
+	            else:
+	                lst[i][j] = lst[i-1][j] + lst[i-1][j-1]
+	    for i in range(A):
+	        for j in range(A):
+	            if(i == j):
+	                final.append(lst[i][0:j+1])
+	    return final
+	                
