@@ -1,0 +1,21 @@
+class Solution:
+    # @param A : integer
+    # @return a list of integers
+    def getRow(self, A):
+        lst = [[0]*(A+1) for i in range(A+1)]
+        final = []
+        for i in range(A+1):
+            for j in range(A+1):
+                if(j == 0):
+                    lst[i][j] = 1
+                elif(i == j):
+                    lst[i][j] = 1
+                else:
+                    lst[i][j] = lst[i-1][j] + lst[i-1][j-1]
+        for i in range(A+1):
+            for j in range(A+1):
+                if(i == j):
+                    final.append(lst[i][0:j+1])
+        return final[A]
+        
+                    
