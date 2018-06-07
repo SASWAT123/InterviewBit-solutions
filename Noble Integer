@@ -1,0 +1,17 @@
+class Solution:
+    # @param A : list of integers
+    # @return an integer
+    def solve(self, A):
+        l = len(A)
+        A.sort()
+        val = -1
+        if(l == 1 and A[0] == 0):
+            return 1
+        for i in range(l-1):
+            if(A[i] == A[i+1]):
+                pass
+            elif(A[i] == l-i-1):
+                val = 1
+            elif(A[l-1] == 0):
+                val = 1
+        return val
