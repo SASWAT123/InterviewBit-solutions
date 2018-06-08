@@ -1,0 +1,27 @@
+class Solution:
+    # @param A : tuple of integers
+    # @return a strings
+    def largestNumber(self, A):
+        A = list(A)
+        A.sort(cmp=self.compare)
+        result = ""
+        sum = 0
+        while A:
+            item = A.pop()
+            result = result + str(item)
+            sum = sum + item
+        
+        if sum == 0:
+            return "0"
+        return result
+
+    def compare(self, x, y):
+        xy = str(x) + str(y)
+        yx = str(y) + str(x)
+        if xy > yx:
+            return 1
+        else:
+            return -1
+
+            
+            
