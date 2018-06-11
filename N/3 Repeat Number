@@ -1,0 +1,24 @@
+class Solution:
+    # @param A : tuple of integers
+    # @return an integer
+    def repeatedNumber(self, A):
+        l = len(A)
+        if l == 1:
+            return A[0]
+        A = list(A)
+        A.sort()
+        count = 1
+        max_count = 0
+        var = 0
+        for i in range(0,l-1):
+            if(A[i] == A[i+1]):
+                count += 1
+            else:
+                count = 1
+            if(count > max_count):
+                max_count = count
+                var = A[i]
+        if(max_count > l//3):
+            return var
+        else:
+            return -1
