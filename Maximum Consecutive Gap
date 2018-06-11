@@ -1,0 +1,17 @@
+class Solution:
+    # @param A : tuple of integers
+    # @return an integer
+    def maximumGap(self, A):
+        A = list(A)
+        Max = 0
+        curr = 0
+        A.sort()
+        l = len(A)
+        if l < 2:
+            return 0
+        for i in range(l-1):
+            curr = A[i+1] - A[i]
+            if(curr > Max):
+                Max = curr
+        return Max
+            
