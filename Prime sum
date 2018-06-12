@@ -1,0 +1,22 @@
+class Solution:
+    # @param A : integer
+    # @return a list of integers
+    def is_prime(self, num):
+        
+        i = 2
+
+        while i * i <= num:
+            if num % i == 0:
+                return False
+            i += 1
+        
+        return True
+
+    def primesum(self, A):
+
+        i = 2
+
+        while 2 * i <= A:
+            if self.is_prime(i) and self.is_prime(A - i):
+                return [i, A - i]
+            i += 1
