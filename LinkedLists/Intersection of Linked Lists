@@ -1,0 +1,42 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    # @param A : head node of linked list
+    # @param B : head node of linked list
+    # @return the head node in the linked list
+    def getIntersectionNode(self, A, B):
+        lenA = 0;
+        lenB = 0;
+        
+        currA = A;
+        currB = B;
+        
+        while(currA != None):
+            lenA += 1;
+            currA = currA.next;
+        
+        while(currB != None):
+            lenB += 1;
+            currB = currB.next;
+            
+        currA = A;
+        currB = B;
+        
+        if(lenA > lenB):
+            for i in range(lenA - lenB):
+                currA = currA.next;
+                
+        elif(lenB > lenA):
+            for i in range(lenB - lenA):
+                currB = currB.next;
+                
+        while currB != currA:
+            currB = currB.next;
+            currA = currA.next;
+            
+        return currA;
+        
